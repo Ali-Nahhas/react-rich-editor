@@ -1,0 +1,201 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.button:hover {
+    background-color: var(--hover);
+}
+
+.button:active {
+    background-color: var(--active);
+}
+
+.toolBar {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.toolBarItem {
+    height: 32px;
+    width: 32px;
+    min-height: 32px;
+    min-width: 32px;
+}
+
+.toolBarDivider {
+    width: 1px;
+    height: 20px;
+    margin: 0px 8px;
+    background-color: var(--divider);
+}
+
+.blocksContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.blockContainer {
+    display: flex;
+    padding-inline-end: 32px;
+    position: relative;
+}
+
+.blockContainerReadMode {
+    display: flex;
+    padding-inline-end: 32px;
+    position: relative;
+}
+
+.fullWidthBlockOnReadMode {
+    padding-inline-end: 0px;
+}
+
+.block {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.blockContent {
+    display: flex;
+    flex: 1;
+    position: relative;
+    border-radius: 2px;
+    transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.blockContent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 191, 147, 0.14);
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.blockContentHighlight .block .blockContent::before {
+    opacity: 1;
+}
+
+.blockContainer:hover .block .blockContent {
+    background: var(--light-hover);
+}
+
+.blockContainer:hover .dragHandle {
+    opacity: 1;
+}
+
+.blockContainerNoHover:hover .dragHandle {
+    opacity: 0;
+}
+
+.dragHandle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 24px;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.dragHandleFocused {
+    background-color: var(--hover);
+    opacity: 1;
+}
+
+.dragHandle:hover {
+    background-color: var(--hover);
+}
+
+.dragHandle:active {
+    background-color: var(--active);
+    opacity: 1;
+    cursor: grabbing;
+}
+
+.handleContainer {
+    display: flex;
+    height: 32px;
+}
+
+.menuBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+}
+
+.blockMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    background-color: var(--background-paper);
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: var(--shadow-16);
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0px 8px;
+    border-radius: 8px;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.menuItemText {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.inlineToolbar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-16);
+    padding: 4px;
+    z-index: 200;
+    background-color: var(--background-paper);
+}
+
+.inlineToolbarButton {
+    width: 32px;
+    height: 32px;
+}
+
+.inlineToolbarDivider {
+    width: 1px;
+    height: 20px;
+    margin: 0px 2px;
+    background-color: var(--divider);
+}
